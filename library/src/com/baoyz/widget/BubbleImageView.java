@@ -105,42 +105,37 @@ public class BubbleImageView extends ImageView {
 
 	public void rightPath(RectF rect, Path path) {
 		path.moveTo(mAngle, rect.top);
-		path.lineTo(rect.width(), rect.top);
-		path.arcTo(new RectF(rect.right - mAngle * 2 - mArrowWidth, rect.top,
+		path.lineTo(rect.width() - mAngle * 2 - mArrowWidth, rect.top);
+		path.arcTo(new RectF(rect.right - mAngle * 2 - mArrowWidth, rect.top, 
 				rect.right - mArrowWidth, mAngle * 2 + rect.top), 270, 90);
 		path.lineTo(rect.right - mArrowWidth, mArrowTop);
 		path.lineTo(rect.right, mArrowTop - mArrowOffset);
 		path.lineTo(rect.right - mArrowWidth, mArrowTop + mArrowHeight);
 		path.lineTo(rect.right - mArrowWidth, rect.height() - mAngle);
-		path.arcTo(new RectF(rect.right - mAngle * 2 - mArrowWidth, rect.bottom
-				- mAngle * 2, rect.right - mArrowWidth, rect.bottom), 0, 90);
-		path.lineTo(rect.left, rect.bottom);
-		path.arcTo(new RectF(rect.left, rect.bottom - mAngle * 2, mAngle * 2
-				+ rect.left, rect.bottom), 90, 90);
-		path.lineTo(rect.left, rect.top);
-		path.arcTo(new RectF(rect.left, rect.top, mAngle * 2 + rect.left,
-				mAngle * 2 + rect.top), 180, 90);
+		path.arcTo(new RectF(rect.right - mAngle * 2 - mArrowWidth, rect.bottom - mAngle * 2, 
+				rect.right - mArrowWidth, rect.bottom), 0, 90);
+		path.lineTo(rect.left + mAngle * 2, rect.bottom);
+		path.arcTo(new RectF(rect.left, rect.bottom - mAngle * 2, mAngle * 2 + rect.left, rect.bottom), 90, 90);
+		path.lineTo(rect.left, rect.top + mAngle * 2);
+		path.arcTo(new RectF(rect.left, rect.top, mAngle * 2 + rect.left, mAngle * 2 + rect.top), 180, 90);
 		path.close();
 	}
 
 	public void leftPath(RectF rect, Path path) {
 		path.moveTo(mAngle + mArrowWidth, rect.top);
-		path.lineTo(rect.width(), rect.top);
-		path.arcTo(new RectF(rect.right - mAngle * 2, rect.top, rect.right,
-				mAngle * 2 + rect.top), 270, 90);
-		path.lineTo(rect.right, rect.top);
-		path.arcTo(new RectF(rect.right - mAngle * 2, rect.bottom - mAngle * 2,
-				rect.right, rect.bottom), 0, 90);
-		path.lineTo(rect.left + mArrowWidth, rect.bottom);
-		path.arcTo(new RectF(rect.left + mArrowWidth, rect.bottom - mAngle * 2,
+		path.lineTo(rect.width() - mAngle * 2, rect.top);
+		path.arcTo(new RectF(rect.right - mAngle * 2, rect.top, rect.right, mAngle * 2 + rect.top), 270, 90);
+		path.lineTo(rect.right, mAngle * 2 + rect.top);
+		path.arcTo(new RectF(rect.right - mAngle * 2, rect.bottom - mAngle * 2, rect.right, rect.bottom), 0, 90);
+		path.lineTo(rect.left + mArrowWidth + mAngle * 2, rect.bottom);
+		path.arcTo(new RectF(rect.left + mArrowWidth, rect.bottom - mAngle * 2, 
 				mAngle * 2 + rect.left + mArrowWidth, rect.bottom), 90, 90);
 		path.lineTo(rect.left + mArrowWidth, mArrowTop + mArrowHeight);
 		path.lineTo(rect.left, mArrowTop - mArrowOffset);
 		path.lineTo(rect.left + mArrowWidth, mArrowTop);
-		path.lineTo(rect.left + mArrowWidth, rect.top);
-		path.arcTo(new RectF(rect.left + mArrowWidth, rect.top, mAngle * 2
-				+ rect.left + mArrowWidth, mAngle * 2 + rect.top), 180, 90);
-
+		path.lineTo(rect.left + mArrowWidth, rect.top + mAngle * 2);
+		path.arcTo(new RectF(rect.left + mArrowWidth, rect.top, 
+				mAngle * 2 + rect.left + mArrowWidth, mAngle * 2 + rect.top), 180, 90);
 		path.close();
 	}
 
